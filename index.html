@@ -3,21 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>شموستي 🩵</title>
+<title>Mazen & Shams</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg-dark: #0a0914;
-    --bg-deep: #130f26;
-    --glass-bg: rgba(255, 255, 255, 0.06);
-    --glass-border: rgba(255, 255, 255, 0.14);
-    --accent-pink: #ff6b9d;
-    --accent-cyan: #67e8f9;
-    --accent-gold: #fcd34d;
-    --text-main: #f8fafc;
-    --text-muted: #cbd5e1;
+    --baby-blue-light: #e0f2fe;
+    --baby-blue: #bae6fd;
+    --baby-blue-mid: #7dd3fc;
+    --baby-blue-accent: #38bdf8;
+    --baby-blue-deep: #0284c7;
+    --baby-blue-ink: #082f49;
+    --baby-blue-sub: #0369a1;
+    --glass-bg: rgba(255, 255, 255, 0.52);
+    --glass-border: rgba(255, 255, 255, 0.8);
   }
 
   * {
@@ -27,64 +27,19 @@
     -webkit-tap-highlight-color: transparent;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     font-family: 'Cairo', sans-serif;
-    background: radial-gradient(circle at top right, #1e1438 0%, var(--bg-dark) 55%, #06050c 100%);
-    color: var(--text-main);
+    background: linear-gradient(180deg, #e0f2fe 0%, #bae6fd 50%, #93c5fd 100%);
+    color: var(--baby-blue-ink);
     min-height: 100vh;
     overflow-x: hidden;
     position: relative;
   }
 
-  /* Ambient floating stars / bokeh */
-  .ambient-bg {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 0;
-    overflow: hidden;
-  }
-
-  .orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(70px);
-    opacity: 0.25;
-    animation: floatOrb 12s ease-in-out infinite alternate;
-  }
-
-  .orb-1 {
-    width: 280px;
-    height: 280px;
-    background: #ec4899;
-    top: -60px;
-    right: -60px;
-  }
-
-  .orb-2 {
-    width: 320px;
-    height: 320px;
-    background: #06b6d4;
-    bottom: 10%;
-    left: -90px;
-    animation-delay: -4s;
-  }
-
-  .orb-3 {
-    width: 220px;
-    height: 220px;
-    background: #8b5cf6;
-    top: 45%;
-    right: 15%;
-    animation-delay: -7s;
-  }
-
-  @keyframes floatOrb {
-    0% { transform: translate(0, 0) scale(1); }
-    100% { transform: translate(24px, -30px) scale(1.12); }
-  }
-
-  /* Splash / Envelope Screen */
   #splash-screen {
     position: fixed;
     inset: 0;
@@ -94,54 +49,73 @@
     align-items: center;
     justify-content: center;
     padding: 24px;
-    background: radial-gradient(circle at center, #1c1235 0%, #090812 100%);
-    transition: opacity 0.85s ease, transform 0.85s ease, visibility 0.85s;
+    background: linear-gradient(180deg, #e0f2fe 0%, #bae6fd 100%);
+    transition: opacity 0.8s ease, transform 0.8s ease, visibility 0.8s ease;
   }
 
   #splash-screen.hidden-splash {
     opacity: 0;
-    transform: scale(1.06);
+    transform: scale(1.05);
     visibility: hidden;
     pointer-events: none;
   }
 
-  .splash-title {
-    font-family: 'Aref Ruqaa', serif;
-    font-size: clamp(2rem, 7vw, 3rem);
-    color: #fff;
-    text-shadow: 0 0 25px rgba(255, 107, 157, 0.45);
-    margin-bottom: 10px;
-    text-align: center;
-  }
-
-  .splash-sub {
-    color: var(--text-muted);
-    font-size: 0.98rem;
-    margin-bottom: 36px;
-    text-align: center;
-  }
-
   .envelope-wrapper {
     position: relative;
-    width: 250px;
-    height: 165px;
+    width: 260px;
+    height: 168px;
     cursor: pointer;
     perspective: 900px;
-    margin-bottom: 28px;
+    margin-bottom: 24px;
   }
 
   .envelope-body {
     width: 100%;
     height: 100%;
-    background: linear-gradient(145deg, #2a1b47, #19102c);
-    border: 1.5px solid rgba(255, 107, 157, 0.45);
+    background: linear-gradient(145deg, #f0f9ff 0%, #bae6fd 60%, #7dd3fc 100%);
+    border: 1.5px solid #ffffff;
     border-radius: 16px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65), 0 0 30px rgba(255, 107, 157, 0.18);
+    box-shadow: 0 18px 40px rgba(2, 132, 199, 0.25);
     position: relative;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .envelope-letter-peek {
+    position: absolute;
+    width: 82%;
+    height: 76%;
+    background: #ffffff;
+    color: var(--baby-blue-ink);
+    border-radius: 10px;
+    top: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    z-index: 2;
+    box-shadow: 0 6px 16px rgba(2, 132, 199, 0.14);
+  }
+
+  .envelope-letter-peek strong {
+    font-family: 'Aref Ruqaa', serif;
+    font-size: 1.15rem;
+    color: var(--baby-blue-sub);
+  }
+
+  .envelope-letter-peek span {
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    color: var(--baby-blue-deep);
+    font-weight: 700;
+  }
+
+  .envelope-wrapper.opening .envelope-letter-peek {
+    transform: translateY(-48px);
   }
 
   .envelope-flap {
@@ -150,12 +124,11 @@
     left: 0;
     right: 0;
     height: 92px;
-    background: linear-gradient(180deg, #3b2563, #251740);
+    background: linear-gradient(180deg, #ffffff, #bae6fd);
     clip-path: polygon(0 0, 100% 0, 50% 100%);
     transform-origin: top center;
     transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
     z-index: 3;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   }
 
   .envelope-wrapper.opening .envelope-flap {
@@ -165,52 +138,66 @@
   .heart-seal {
     position: relative;
     z-index: 4;
-    width: 54px;
-    height: 54px;
+    width: 52px;
+    height: 52px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #ff5e99, #ff8fb1);
+    background: #ffffff;
+    color: var(--baby-blue-deep);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.55rem;
-    box-shadow: 0 8px 25px rgba(255, 94, 153, 0.55);
+    font-size: 1.45rem;
+    box-shadow: 0 8px 20px rgba(2, 132, 199, 0.25);
     transition: transform 0.4s ease, opacity 0.4s ease;
   }
 
   .envelope-wrapper.opening .heart-seal {
-    transform: scale(1.25) translateY(-18px);
     opacity: 0;
+    transform: scale(1.2);
   }
 
-  .open-btn {
-    background: linear-gradient(135deg, #ff5e99, #8b5cf6);
-    color: #fff;
-    border: none;
-    padding: 13px 34px;
+  .splash-title {
+    font-family: 'Aref Ruqaa', serif;
+    font-size: clamp(1.9rem, 6.5vw, 2.6rem);
+    color: var(--baby-blue-ink);
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .open-pill-btn {
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid #ffffff;
+    color: var(--baby-blue-ink);
+    padding: 9px 22px;
     border-radius: 999px;
     font-family: 'Cairo', sans-serif;
-    font-size: 1.05rem;
+    font-size: 0.92rem;
     font-weight: 700;
     cursor: pointer;
-    box-shadow: 0 10px 28px rgba(255, 94, 153, 0.38);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    margin-bottom: 10px;
+    transition: background 0.25s ease, transform 0.25s ease;
   }
 
-  .open-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 14px 34px rgba(255, 94, 153, 0.52);
+  .open-pill-btn:hover {
+    background: #ffffff;
+    transform: translateY(-1px);
   }
 
-  /* Main Container */
+  .splash-hint {
+    font-size: 0.85rem;
+    color: var(--baby-blue-sub);
+    text-align: center;
+  }
+
   #main-content {
     position: relative;
     z-index: 2;
-    max-width: 780px;
+    max-width: 540px;
     margin: 0 auto;
-    padding: 28px 16px 70px;
+    padding: 24px 16px 70px;
     display: none;
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(16px);
     transition: opacity 0.8s ease, transform 0.8s ease;
   }
 
@@ -220,352 +207,302 @@
     transform: translateY(0);
   }
 
-  .hero-header {
-    text-align: center;
-    margin-bottom: 26px;
-  }
-
-  .hero-badge {
-    display: inline-block;
-    padding: 5px 14px;
-    border-radius: 999px;
-    background: rgba(103, 232, 249, 0.12);
-    border: 1px solid rgba(103, 232, 249, 0.3);
-    color: var(--accent-cyan);
-    font-size: 0.82rem;
-    font-weight: 600;
-    margin-bottom: 10px;
-  }
-
-  .hero-title {
-    font-family: 'Aref Ruqaa', serif;
-    font-size: clamp(2rem, 7vw, 2.8rem);
-    color: #fff;
-    margin-bottom: 6px;
-  }
-
-  .hero-subtitle {
-    color: var(--text-muted);
-    font-size: 0.96rem;
-  }
-
-  /* Glass Cards */
   .glass-card {
     background: var(--glass-bg);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
     border: 1px solid var(--glass-border);
     border-radius: 24px;
-    padding: 22px 18px;
-    margin-bottom: 22px;
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+    padding: 22px 16px;
+    margin-bottom: 18px;
+    box-shadow: 0 12px 30px rgba(2, 132, 199, 0.12);
   }
 
-  .section-divider-title {
-    font-size: 1.2rem;
+  .story-header {
+    text-align: center;
+    margin-bottom: 18px;
+  }
+
+  .story-title {
+    font-size: 1.45rem;
     font-weight: 800;
-    color: #fff;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    color: var(--baby-blue-ink);
+    margin-bottom: 4px;
   }
 
-  /* Counter Grid */
+  .story-sub {
+    font-size: 0.9rem;
+    color: var(--baby-blue-sub);
+    margin-bottom: 12px;
+  }
+
+  .story-since {
+    font-size: 0.8rem;
+    color: var(--baby-blue-deep);
+    display: inline-block;
+    padding: 0 12px;
+  }
+
   .counter-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
   }
 
-  @media (min-width: 560px) {
-    .counter-grid {
-      grid-template-columns: repeat(6, 1fr);
-    }
-  }
-
   .time-box {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.9);
     border-radius: 16px;
-    padding: 14px 8px;
+    padding: 14px 6px;
     text-align: center;
   }
 
   .time-box .num {
-    font-size: 1.55rem;
+    font-size: 1.5rem;
     font-weight: 800;
-    color: var(--accent-pink);
-    line-height: 1.2;
+    color: var(--baby-blue-ink);
+    line-height: 1.25;
   }
 
   .time-box .label {
     font-size: 0.8rem;
-    color: var(--text-muted);
-    margin-top: 4px;
-  }
-
-  /* Music Player */
-  .music-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 14px;
-  }
-
-  .tag {
-    font-weight: 700;
-    color: var(--accent-cyan);
-    font-size: 0.95rem;
-  }
-
-  .hint {
-    font-size: 0.82rem;
-    color: var(--text-muted);
-  }
-
-  .player-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 14px;
-    background: rgba(0, 0, 0, 0.25);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 18px;
-    padding: 12px 16px;
-  }
-
-  .song-title {
-    font-weight: 700;
-    font-size: 1rem;
-    color: #fff;
-  }
-
-  .song-sub {
-    font-size: 0.82rem;
-    color: var(--text-muted);
+    color: var(--baby-blue-sub);
     margin-top: 2px;
   }
 
-  .play-btn {
+  .music-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .music-meta-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+  }
+
+  .music-badge {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--baby-blue-deep);
+  }
+
+  .music-note {
+    font-size: 0.75rem;
+    color: var(--baby-blue-sub);
+  }
+
+  .song-name {
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: var(--baby-blue-ink);
+  }
+
+  .song-desc {
+    font-size: 0.8rem;
+    color: var(--baby-blue-sub);
+  }
+
+  .circle-play-btn {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    border: none;
-    background: linear-gradient(135deg, #ff5e99, #67e8f9);
-    color: #090812;
-    font-size: 1.15rem;
+    border: 1px solid #ffffff;
+    background: linear-gradient(135deg, #ffffff, #7dd3fc);
+    color: var(--baby-blue-ink);
+    font-size: 1.1rem;
     font-weight: 800;
     cursor: pointer;
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 6px 20px rgba(255, 94, 153, 0.35);
+    box-shadow: 0 6px 18px rgba(2, 132, 199, 0.22);
     transition: transform 0.2s ease;
   }
 
-  .play-btn:active {
-    transform: scale(0.94);
+  .circle-play-btn:active {
+    transform: scale(0.93);
   }
 
-  .scroll-hint {
+  .scroll-cue {
     text-align: center;
-    color: var(--text-muted);
-    font-size: 0.88rem;
-    margin: 6px 0 18px;
-    letter-spacing: 0.3px;
+    font-size: 0.82rem;
+    color: var(--baby-blue-sub);
+    margin: 4px 0 16px;
   }
 
-  /* 2x2 Promises Grid */
-  .promises-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-  }
-
-  @media (max-width: 500px) {
-    .promises-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  .promise-item {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 18px;
-    padding: 16px 14px;
+  .block-title {
     text-align: center;
+    font-size: 1.08rem;
+    font-weight: 800;
+    color: var(--baby-blue-ink);
+    margin-bottom: 14px;
   }
 
-  .promise-icon {
-    font-size: 1.4rem;
-    margin-bottom: 6px;
-  }
-
-  .promise-text {
-    font-size: 0.94rem;
-    font-weight: 600;
-    color: #fff;
-    line-height: 1.5;
-  }
-
-  /* 2x2 Flip Cards (Messages & Photos) */
-  .flip-grid {
+  .promises-row {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
   }
 
-  @media (max-width: 520px) {
-    .flip-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  .flip-card {
-    height: 215px;
-    perspective: 1000px;
-    cursor: pointer;
-  }
-
-  .flip-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .flip-card.flipped .flip-inner {
-    transform: rotateY(180deg);
-  }
-
-  .flip-front,
-  .flip-back {
-    position: absolute;
-    inset: 0;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    overflow: hidden;
+  .promise-box {
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    padding: 14px 8px;
+    text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 16px;
-    text-align: center;
+    gap: 8px;
+    min-height: 104px;
   }
 
-  .flip-front {
-    background: linear-gradient(155deg, rgba(255, 107, 157, 0.16), rgba(103, 232, 249, 0.08));
+  .promise-symbol {
+    font-size: 1.25rem;
+    color: var(--baby-blue-deep);
   }
 
-  .flip-back {
-    background: linear-gradient(155deg, #251642, #141b33);
-    transform: rotateY(180deg);
-  }
-
-  .flip-badge {
+  .promise-label {
     font-size: 0.78rem;
-    color: var(--accent-cyan);
-    margin-bottom: 8px;
     font-weight: 700;
+    color: var(--baby-blue-ink);
+    line-height: 1.45;
   }
 
-  .flip-front-text {
-    font-size: 1.05rem;
+  .notes-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .note-tile {
+    background: rgba(255, 255, 255, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    min-height: 112px;
+    padding: 12px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.25s ease, background 0.3s ease;
+  }
+
+  .note-tile:hover {
+    transform: translateY(-2px);
+  }
+
+  .note-tile .icon-only {
+    font-size: 1.2rem;
+    color: var(--baby-blue-deep);
+  }
+
+  .note-tile .revealed-msg {
+    display: none;
+    font-size: 0.82rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--baby-blue-ink);
+    line-height: 1.45;
   }
 
-  .flip-tap-hint {
-    font-size: 0.76rem;
-    color: var(--text-muted);
-    margin-top: 10px;
+  .note-tile.revealed {
+    background: rgba(255, 255, 255, 0.92);
   }
 
-  .flip-back-text {
-    font-size: 0.92rem;
-    line-height: 1.65;
-    color: #f8fafc;
+  .note-tile.revealed .icon-only {
+    display: none;
   }
 
-  /* Photo Flip Cards */
-  .photo-card {
-    height: 250px;
-  }
-
-  .photo-card .flip-front {
-    padding: 0;
-    background: #120e24;
-  }
-
-  .photo-card .flip-front img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  .note-tile.revealed .revealed-msg {
     display: block;
   }
 
-  .photo-caption-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 10px 12px;
-    background: linear-gradient(transparent, rgba(9, 8, 18, 0.88));
-    font-size: 0.82rem;
-    color: #fff;
-    font-weight: 600;
+  .final-letter-card {
+    text-align: center;
+    padding: 28px 20px;
   }
 
-  .footer-note {
-    text-align: center;
-    color: var(--text-muted);
-    font-size: 0.88rem;
-    margin-top: 24px;
-    padding-bottom: 12px;
+  .final-heart {
+    font-size: 1.35rem;
+    color: var(--baby-blue-deep);
+    margin-bottom: 10px;
+  }
+
+  .final-heading {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--baby-blue-ink);
+    margin-bottom: 14px;
+  }
+
+  .final-body {
+    font-size: 0.94rem;
+    line-height: 1.85;
+    color: var(--baby-blue-ink);
+    margin-bottom: 16px;
+  }
+
+  .final-sign {
+    font-size: 0.96rem;
+    font-weight: 800;
+    color: var(--baby-blue-sub);
+    margin-bottom: 20px;
+  }
+
+  .top-letter-btn {
+    background: linear-gradient(135deg, #ffffff, #7dd3fc);
+    border: 1px solid #ffffff;
+    color: var(--baby-blue-ink);
+    padding: 11px 24px;
+    border-radius: 999px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgba(2, 132, 199, 0.2);
+    transition: transform 0.2s ease;
+  }
+
+  .top-letter-btn:active {
+    transform: scale(0.96);
   }
 </style>
 </head>
 <body>
 
-<div class="ambient-bg">
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
-</div>
-
-<!-- Splash Screen -->
 <div id="splash-screen">
-  <div class="splash-title">جواب لـ شموستي 🩵</div>
-  <div class="splash-sub">دوسي على الظرف أو الزر عشان تفتحي الصفحة</div>
-
   <div class="envelope-wrapper" id="envelopeBox" onclick="openEnvelope()">
     <div class="envelope-flap"></div>
+    <div class="envelope-letter-peek">
+      <strong>شموستي</strong>
+      <span>OUR ETERNAL LOVE STORY</span>
+    </div>
     <div class="envelope-body">
       <div class="heart-seal">🩵</div>
     </div>
   </div>
 
-  <button class="open-btn" type="button" onclick="openEnvelope()">افتحي الجواب</button>
+  <div class="splash-title">Mazen &amp; Shams</div>
+  <button class="open-pill-btn" type="button" onclick="openEnvelope()">💌 افتحي الجواب</button>
+  <div class="splash-hint">اضغطي على الظرف عشان نفتح الحكاية</div>
 </div>
 
-<!-- Main Content -->
 <main id="main-content">
-  <header class="hero-header">
-    <div class="hero-badge">✨ مساحة خاصة بيننا</div>
-    <h1 class="hero-title">شموستي 🩵</h1>
-    <p class="hero-subtitle">كل لحظة وإنتي معايا بتفرق وبتحلي الدنيا</p>
-  </header>
-
-  <!-- 1. Live Counter -->
   <section class="glass-card">
-    <div class="section-divider-title">⏳ عداد الوقت مع بعض</div>
+    <div class="story-header">
+      <div class="story-title">حكايتنا 🩵</div>
+      <div class="story-sub">كل لحظة معاكي هي عمر جديد</div>
+      <div class="story-since">منذ أن بدأت القصة</div>
+    </div>
+
     <div class="counter-grid">
       <div class="time-box">
         <div class="num" id="years">0</div>
@@ -594,180 +531,86 @@
     </div>
   </section>
 
-  <!-- Music Player -->
-  <section class="glass-card music-card">
-    <div class="music-top">
-      <span class="tag">🎵 موسيقى الذكرى</span>
-      <span class="hint">شغّلها وإنت بتقرا</span>
-    </div>
-    <div class="player-bar">
-      <div class="song-info">
-        <div class="song-title">ع بالي حبيبي - إليسا</div>
-        <div class="song-sub">الأغنية اللي بتوصفنا</div>
+  <section class="glass-card">
+    <div class="music-row">
+      <div>
+        <div class="music-meta-top">
+          <span class="music-badge">🎵 موسيقى الذكرى</span>
+          <span class="music-note">شغّلها وأنت بتقرأ</span>
+        </div>
+        <div class="song-name">ع بالي حبيبي - إليسا</div>
+        <div class="song-desc">الأغنية اللي بتوصفنا</div>
       </div>
-      <button class="play-btn" id="playBtn" onclick="toggleMusic()" aria-label="تشغيل أو إيقاف الموسيقى">▶</button>
+      <button class="circle-play-btn" id="playBtn" type="button" onclick="toggleMusic()" aria-label="تشغيل أو إيقاف الموسيقى">▶</button>
     </div>
     <audio id="bgAudio" loop preload="auto">
       <source src="song.mp3" type="audio/mpeg">
     </audio>
   </section>
 
-  <div class="scroll-hint">↓ اسحبي لتحت ↓</div>
+  <div class="scroll-cue">اسحبي لتحت</div>
 
-  <!-- 2. Promises -->
   <section class="glass-card">
-    <div class="section-divider-title"> vows / وعود من القلب 🤍</div>
-    <div class="promises-grid" style="margin-bottom: 8px;">
-      <div class="promise-item">
-        <div class="promise-icon">🩵</div>
-        <div class="promise-text">هفضل جنبك في كل وقت</div>
+    <div class="block-title">وعود من القلب</div>
+    <div class="promises-row">
+      <div class="promise-box">
+        <div class="promise-symbol">🩵</div>
+        <div class="promise-label">هفضل جنبك في كل وقت 🩵</div>
       </div>
-      <div class="promise-item">
-        <div class="promise-icon">🩵</div>
-        <div class="promise-text">هفضل سندك وأمانك دايماً</div>
+      <div class="promise-box">
+        <div class="promise-symbol">🛡️</div>
+        <div class="promise-label">هكون دايماً أمانك وضحكتك 🩵</div>
       </div>
-      <div class="promise-item">
-        <div class="promise-icon">🩵</div>
-        <div class="promise-text">هفضل أحبك دايماً ومقدرش أستغنى عنك</div>
-      </div>
-      <div class="promise-item">
-        <div class="promise-icon">🩵</div>
-        <div class="promise-text">هنفضل سوا مهما حصل ومهما الدنيا لفت</div>
+      <div class="promise-box">
+        <div class="promise-symbol">∞</div>
+        <div class="promise-label">حبنا مالوش نهاية 🩵</div>
       </div>
     </div>
   </section>
 
-  <!-- 3. Flip Message Cards (2x2) -->
   <section class="glass-card">
-    <div class="section-divider-title">💌 رسائل مقلوبة ليكي</div>
-    <div class="flip-grid">
-      <div class="flip-card" onclick="this.classList.toggle('flipped')">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <div class="flip-badge">رسالة 1</div>
-            <div class="flip-front-text">أول حاجة عايز أقولها</div>
-            <div class="flip-tap-hint">دوسي عشان تقلبي الكارت</div>
-          </div>
-          <div class="flip-back">
-            <div class="flip-back-text">وجودك في حياتي أكبر نعمة، وصوتك لوحده بيطمني ويريح قلبي من أي تعب.</div>
-          </div>
-        </div>
+    <div class="block-title">رسائل صغيرة</div>
+    <div class="notes-row">
+      <div class="note-tile" onclick="this.classList.toggle('revealed')">
+        <span class="icon-only">✉</span>
+        <span class="revealed-msg">إنتي أجمل نعمة في حياتي 🩵</span>
       </div>
-
-      <div class="flip-card" onclick="this.classList.toggle('flipped')">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <div class="flip-badge">رسالة 2</div>
-            <div class="flip-front-text">في لحظات الزعل</div>
-            <div class="flip-tap-hint">دوسي عشان تقلبي الكارت</div>
-          </div>
-          <div class="flip-back">
-            <div class="flip-back-text">حتى وإحنا متخانقين أو زعلانين، مكانتك جوايا ثابتة ومش بتتغير أبداً.</div>
-          </div>
-        </div>
+      <div class="note-tile" onclick="this.classList.toggle('revealed')">
+        <span class="icon-only">★</span>
+        <span class="revealed-msg">وجودك بيخلي الدنيا منورة 🩵</span>
       </div>
-
-      <div class="flip-card" onclick="this.classList.toggle('flipped')">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <div class="flip-badge">رسالة 3</div>
-            <div class="flip-front-text">عن ضحكتك وكلامك</div>
-            <div class="flip-tap-hint">دوسي عشان تقلبي الكارت</div>
-          </div>
-          <div class="flip-back">
-            <div class="flip-back-text">أحلى تفاصيل يومي بتبدأ لما نتكلم، وضحكتك بتخلي كل حاجة بسيطة وحلوة.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="flip-card" onclick="this.classList.toggle('flipped')">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <div class="flip-badge">رسالة 4</div>
-            <div class="flip-front-text">وعد لبكرة</div>
-            <div class="flip-tap-hint">دوسي عشان تقلبي الكارت</div>
-          </div>
-          <div class="flip-back">
-            <div class="flip-back-text">إنتي بيتي وأماني، وهفضل متمسك بيكي لآخر العمر يا شموستي.</div>
-          </div>
-        </div>
+      <div class="note-tile" onclick="this.classList.toggle('revealed')">
+        <span class="icon-only">♛</span>
+        <span class="revealed-msg">ملكة قلبي للأبد 🩵</span>
       </div>
     </div>
   </section>
 
-  <!-- 4. Flip Photo Cards (2x2) -->
-  <section class="glass-card">
-    <div class="section-divider-title">📸 ذكريات مكالماتنا</div>
-    <div class="flip-grid">
-      <div class="flip-card photo-card" onclick="this.classList.toggle('flipped')">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <img src="photo1.jpg" alt="Shams 2:00:00">
-            <div class="photo-caption-overlay">Shams • 2:00:00</div>
-          </div>
-          <div class="flip-back">
-            <div class="flip-badge">ذكرى 1</div>
-            <div class="flip-back-text">ساعتين كاملين عدوا هوا وإحنا بنتكلم ومش بنحس بالوقت.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="flip-card photo-card" onclick="this.classList.toggle('flipped')">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <img src="photo2.jpg" alt="Shams WhatsApp 11:11">
-            <div class="photo-caption-overlay">WhatsApp • 11:11</div>
-          </div>
-          <div class="flip-back">
-            <div class="flip-badge">ذكرى 2</div>
-            <div class="flip-back-text">لحظة 11:11 اللي دايماً بتفكرني بأمنيتي إننا نكون سوا دايماً.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="flip-card photo-card" onclick="this.classList.toggle('flipped')">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <img src="photo3.png" alt="Shamosty Video Call 3:39:25">
-            <div class="photo-caption-overlay">Shamosty • 3:39:25</div>
-          </div>
-          <div class="flip-back">
-            <div class="flip-badge">ذكرى 3</div>
-            <div class="flip-back-text">مكالمة فيديو طويلة ومليانة ضحك وحكايات ما بتخلصش.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="flip-card photo-card" onclick="this.classList.toggle('flipped')">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <img src="photo4.jpg" alt="My Home 1:00:00">
-            <div class="photo-caption-overlay">My Home • 1:00:00</div>
-          </div>
-          <div class="flip-back">
-            <div class="flip-badge">ذكرى 4</div>
-            <div class="flip-back-text">لأنك فعلاً بيتي وأكتر مكان بحس فيه بالراحة والأمان.</div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <section class="glass-card final-letter-card">
+    <div class="final-heart">🩵</div>
+    <div class="final-heading">ملكة قلبي.. 🩵</div>
+    <p class="final-body">
+      حبيبتي "شموستي".. عايز أقولك إن كل كلمة كتبتها هنا وكل لحظة عدت بيننا هي جزء صغير من اللي حاسه بيكي. إنتي مش بس حبيبتي، إنتي بيتي وضحكتي وأماني. هفضل دايماً جنبك وهنفضل سوا مهما حصل ومهما الدنيا لفت. ربنا يخليكي ليا يا أغلى ما في عمري.
+    </p>
+    <div class="final-sign">بحبك يا شموستي.. للأبد 🩵</div>
+    <button class="top-letter-btn" type="button" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })">
+      💌 افتحي الجواب من الأول
+    </button>
   </section>
-
-  <div class="footer-note">صُنِع بحب لـ شموستي 🩵</div>
 </main>
 
 <script>
-  let envelopeOpened = false;
+  let openedOnce = false;
 
   function openEnvelope() {
-    if (envelopeOpened) return;
-    envelopeOpened = true;
+    if (openedOnce) return;
+    openedOnce = true;
 
-    const envBox = document.getElementById('envelopeBox');
+    const env = document.getElementById('envelopeBox');
     const splash = document.getElementById('splash-screen');
     const main = document.getElementById('main-content');
 
-    if (envBox) envBox.classList.add('opening');
+    if (env) env.classList.add('opening');
 
     setTimeout(() => {
       if (splash) splash.classList.add('hidden-splash');
@@ -779,7 +622,7 @@
           });
         });
       }
-    }, 450);
+    }, 550);
   }
 
   function toggleMusic() {
@@ -799,49 +642,48 @@
     }
   }
 
-  // Start date for live counter (update YYYY, MM-1, DD if needed)
-  const startDate = new Date(2025, 0, 1, 0, 0, 0);
+  const startDate = new Date(2025, 10, 2, 0, 0, 0);
 
-  function updateCounter() {
+  function updateTimer() {
     const now = new Date();
     let diff = Math.max(0, Math.floor((now - startDate) / 1000));
 
-    const secondsInMinute = 60;
-    const secondsInHour = 3600;
-    const secondsInDay = 86400;
-    const secondsInMonth = 86400 * 30;
-    const secondsInYear = 86400 * 365;
+    const secMin = 60;
+    const secHr = 3600;
+    const secDay = 86400;
+    const secMo = 86400 * 30;
+    const secYr = 86400 * 365;
 
-    const years = Math.floor(diff / secondsInYear);
-    diff %= secondsInYear;
+    const years = Math.floor(diff / secYr);
+    diff %= secYr;
 
-    const months = Math.floor(diff / secondsInMonth);
-    diff %= secondsInMonth;
+    const months = Math.floor(diff / secMo);
+    diff %= secMo;
 
-    const days = Math.floor(diff / secondsInDay);
-    diff %= secondsInDay;
+    const days = Math.floor(diff / secDay);
+    diff %= secDay;
 
-    const hours = Math.floor(diff / secondsInHour);
-    diff %= secondsInHour;
+    const hours = Math.floor(diff / secHr);
+    diff %= secHr;
 
-    const minutes = Math.floor(diff / secondsInMinute);
-    const seconds = diff % secondsInMinute;
+    const minutes = Math.floor(diff / secMin);
+    const seconds = diff % secMin;
 
-    const setVal = (id, val) => {
+    const setEl = (id, v) => {
       const el = document.getElementById(id);
-      if (el) el.textContent = val;
+      if (el) el.textContent = v;
     };
 
-    setVal('years', years);
-    setVal('months', months);
-    setVal('days', days);
-    setVal('hours', hours);
-    setVal('minutes', minutes);
-    setVal('seconds', seconds);
+    setEl('years', years);
+    setEl('months', months);
+    setEl('days', days);
+    setEl('hours', hours);
+    setEl('minutes', minutes);
+    setEl('seconds', seconds);
   }
 
-  updateCounter();
-  setInterval(updateCounter, 1000);
+  updateTimer();
+  setInterval(updateTimer, 1000);
 </script>
 </body>
 </html>
