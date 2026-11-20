@@ -96,7 +96,9 @@
     align-items: center;
     justify-content: center;
     gap: 4px;
-    transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.45s ease;
     z-index: 2;
     box-shadow: 0 6px 16px rgba(2, 132, 199, 0.14);
   }
@@ -115,6 +117,7 @@
   }
 
   .envelope-wrapper.opening .envelope-letter-peek {
+    opacity: 1;
     transform: translateY(-48px);
   }
 
@@ -409,7 +412,6 @@
     display: none;
     font-size: 0.82rem;
     font-weight: 700;
-    color: var(--baby-blue-ink);
     line-height: 1.45;
   }
 
@@ -423,6 +425,18 @@
 
   .note-tile.revealed .revealed-msg {
     display: block;
+  }
+
+  .note-tile.tile-grey.revealed .revealed-msg {
+    color: #4b5563;
+  }
+
+  .note-tile.tile-blue.revealed .revealed-msg {
+    color: #0284c7;
+  }
+
+  .note-tile.tile-red.revealed .revealed-msg {
+    color: #dc2626;
   }
 
   .final-letter-card {
@@ -564,23 +578,23 @@
   <section class="glass-card">
     <div class="block-title">رسائل صغيرة</div>
     <div class="notes-row">
-      <div class="note-tile" onclick="this.classList.toggle('revealed')">
-        <span class="icon-only">❣️</span>
-        <span class="revealed-msg">إنتي أجمل نعمة في حياتي 🩵</span>
+      <div class="note-tile tile-grey" onclick="this.classList.toggle('revealed')">
+        <span class="icon-only">🩶</span>
+        <span class="revealed-msg">إنتي أجمل نعمة في حياتي 🩶</span>
       </div>
-      <div class="note-tile" onclick="this.classList.toggle('revealed')">
+      <div class="note-tile tile-blue" onclick="this.classList.toggle('revealed')">
         <span class="icon-only">🩵</span>
         <span class="revealed-msg">وجودك بيخلي الدنيا منورة 🩵</span>
       </div>
-      <div class="note-tile" onclick="this.classList.toggle('revealed')">
-        <span class="icon-only">🩶</span>
-        <span class="revealed-msg">ملكة قلبي للأبد 🩵</span>
+      <div class="note-tile tile-red" onclick="this.classList.toggle('revealed')">
+        <span class="icon-only">❣️</span>
+        <span class="revealed-msg">ملكة قلبي للأبد ❣️</span>
       </div>
     </div>
   </section>
 
   <section class="glass-card final-letter-card">
-    <div class="final-heart">❣️</div>
+    <div class="final-heart">🩶</div>
     <p class="final-body">
       بحبك موت ياشموستي ويارب دايما تكوني معايا بجد انضف شخص عرفته في حياتي واكتر شخص بحبه موت بنتي وصاحبتي واغلي ما عندي 🩵
     </p>
@@ -678,4 +692,4 @@
   setInterval(updateTimer, 1000);
 </script>
 </body>
-</html>
+                                                     </html>
